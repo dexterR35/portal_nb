@@ -367,12 +367,18 @@ a {
   0%, 100% {
     transform: translateY(0) translateZ(0);
   }
+  25% {
+    transform: translateY(-2px) translateZ(10px);
+  }
   50% {
     transform: translateY(-5px) translateZ(20px);
   }
+  75% {
+    transform: translateY(-2px) translateZ(10px);
+  }
 }
 .card img {
-  animation: liftUp 8s ease-in-out infinite;
+  animation: liftUp 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .card:nth-child(1) img {
@@ -380,11 +386,11 @@ a {
 }
 
 .card:nth-child(2) img {
-  animation-delay: 2s;
+  animation-delay: 5s;
 }
 
 .card:nth-child(3) img {
-  animation-delay: 3s;
+  animation-delay: 10s;
 }
 
 .card .label {
@@ -521,14 +527,15 @@ a {
   transition: left 0.5s ease;
 }
 
-.card .cta-button:hover::before {
+.card:hover .cta-button::before {
   left: 100%;
 }
 
-.card .cta-button:hover {
-  background: var(--cta-color);
+.card:hover .cta-button {
+  background: var(--cta-color) !important;
   transform: translateY(-2px);
 }
+
 .card:nth-child(1) .cta-button {
   background: var(--red-color);
 }
@@ -536,6 +543,7 @@ a {
 .card:nth-child(1) p span {
   color: var(--rose-color);
 }
+
 .card:nth-child(2) .cta-button {
   background: var(--green-color);
 }
@@ -543,6 +551,7 @@ a {
 .card:nth-child(2) p span {
   color: var(--soft-green-color);
 }
+
 .card:nth-child(3) .cta-button {
   background: var(--soft-blue-color);
 }
@@ -754,7 +763,10 @@ input::placeholder {
   }
 
   .steps-indicator {
-    display: none !important;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 8px 0;
   }
 
   .container {
@@ -787,5 +799,41 @@ input::placeholder {
 
   .subscribe-section {
     padding: 10px 16px;
+  }
+  .card-content-wrapper {
+    padding: 16px 0;
+  }
+
+  .footer {
+    padding: 0 16px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    row-gap: 24px;
+  }
+
+  .footer-content .footer-text {
+    grid-column: 1;
+  }
+
+  .footer-cards {
+    width: 100%;
+  }
+
+  .footer-cards ul {
+    width: 100%;
+  }
+
+  .footer-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0 12px 0;
+  }
+
+  .footer .social-media {
+    justify-content: center;
   }
 }
