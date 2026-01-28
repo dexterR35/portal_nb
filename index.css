@@ -60,7 +60,10 @@ a {
 .card-content,
 .card .label,
 .footer,
-.payment-methods ul {
+.footer-header,
+.footer .social-media,
+.subscribe-button,
+.payment-methods ul,.footer-cards ul,.tnc,.tnc ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +74,7 @@ a {
 .hero-content,
 .cta-section,
 .hero .left-side-content,
-.footer {
+.footer,.footer-content {
   width: 100%;
   height: 100%;
 }
@@ -84,6 +87,19 @@ a {
 .wrapper {
   flex-direction: column;
   gap: 24px;
+}
+
+.s-typo,.tnc ul li,.footer-cards ul li {
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+}
+
+.slick-slider {
+  margin: 0 !important;
 }
 
 .container {
@@ -103,12 +119,39 @@ a {
   justify-content: space-between;
   flex-direction: row;
   background: var(--header-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header.scrolled {
+  height: 50px;
+  padding: 0 60px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.header.scrolled .logo svg {
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.scrolled .cta-button {
+  padding: 8px 14px;
+  font-size: 13px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header .cta-button {
   padding: 10px 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header .login {
   background: var(--cta-default-color);
+}
+
+.logo svg {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero {
   flex-direction: column;
@@ -118,6 +161,48 @@ a {
   height: 326px;
   align-items: center;
 }
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+}
+
+/* Fix Slick carousel layout */
+.hero.carousel {
+  overflow: hidden;
+}
+
+.hero.carousel .slick-slide {
+  display: flex !important;
+  height: 100%;
+  width: 100%;
+
+
+}
+
+.hero.carousel .slick-list {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.hero.carousel .slick-track {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  will-change: transform;
+}
+
+/* Ensure smooth infinite loop - let Slick handle transitions */
+.hero.carousel .slick-cloned {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
 .hero .left-side {
   display: flex;
@@ -150,7 +235,7 @@ a {
 .hero .left-side-title {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: start;
   height: 100%;
   gap: 12px;
@@ -184,12 +269,9 @@ a {
 
 .label p {
   color: #f54c64;
-  font-family: Inter;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  letter-spacing: -0.2px;
 }
 
 /* cta section */
@@ -210,13 +292,13 @@ a {
   border-radius: 8px;
   background-color: var(--cta-color);
   color: var(--white-color);
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: -0.2px;
   cursor: pointer;
+  outline: none;
 }
 
 /* steps indicator */
@@ -231,15 +313,12 @@ a {
   height: 4px;
   flex-shrink: 0;
   border-radius: 4px;
-
   background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
 }
 
-.steps-indicator div:nth-child(2) {
+.steps-indicator .step-dot.active {
   width: 44px;
-  height: 4px;
-  flex-shrink: 0;
-  border-radius: 4px;
   background: #4a72ff;
 }
 
@@ -248,6 +327,8 @@ a {
   flex-direction: row;
   gap: 24px;
   align-self: stretch;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card {
@@ -258,8 +339,52 @@ a {
   align-self: stretch;
   background-color: var(--card-color);
   position: relative;
-
   flex: 1 0 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+
+.card:hover::after {
+  opacity: 1;
+  animation: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.cards-section:hover .card:not(:hover) {
+  opacity: 1;
+}
+
+
+/*   for images */
+@keyframes liftUp {
+  0%, 100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-5px) translateZ(20px);
+  }
+}
+.card img {
+  animation: liftUp 8s ease-in-out infinite;
+}
+
+.card:nth-child(1) img {
+  animation-delay: 0s;
+}
+
+.card:nth-child(2) img {
+  animation-delay: 2s;
+}
+
+.card:nth-child(3) img {
+  animation-delay: 3s;
 }
 
 .card .label {
@@ -270,11 +395,11 @@ a {
   top: 12px;
   left: 12px;
   background: rgba(5, 58, 43, 0.4);
+  z-index: 3;
 }
 
 .card .label p {
-  color: #1bc895;
-  font-family: Inter;
+  color: var(--soft-green-color);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -287,6 +412,7 @@ a {
   height: 16px;
   aspect-ratio: 1/1;
 }
+
 .card-content-wrapper {
   display: flex;
   padding: 16px;
@@ -297,6 +423,7 @@ a {
   align-self: stretch;
   flex: 1 0 0;
 }
+
 .card-content {
   display: flex;
   flex-direction: column;
@@ -304,18 +431,10 @@ a {
   align-items: flex-start;
   gap: 8px;
   align-self: stretch;
-  /* display: flex;
-  padding: 16px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 8px;
-  align-self: stretch; */
 }
 
 .card-content-text p {
   color: var(--white-color);
-  font-family: Inter;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -326,13 +445,53 @@ a {
 .card-content-text p span {
   color: var(--rose-color);
 }
+
 .card img {
   display: flex;
-  height: 193.907px;
+  height: 194px;
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
   aspect-ratio: 335/168;
+  position: relative;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  perspective: 700px;
+  transform-style: preserve-3d;
+}
+
+.card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 70%,
+    transparent 100%);
+  animation: shimmer 3s ease-in-out infinite;
+  z-index: 1;
+  transform-origin: center;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 .card .cta-button {
   width: 100%;
@@ -342,8 +501,33 @@ a {
   color: var(--white-color);
 }
 
+.card .cta-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card .cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%);
+  transition: left 0.5s ease;
+}
+
+.card .cta-button:hover::before {
+  left: 100%;
+}
+
 .card .cta-button:hover {
   background: var(--cta-color);
+  transform: translateY(-2px);
 }
 .card:nth-child(1) .cta-button {
   background: var(--red-color);
@@ -366,33 +550,18 @@ a {
   color: var(--soft-blue-color);
 }
 .low-text {
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
-  letter-spacing: -0.2px;
   color: var(--low-text-color);
 }
 
 .small-text {
   color: var(--white-color);
   white-space: nowrap;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
   font-weight: 500;
   line-height: 16px;
-  letter-spacing: -0.2px;
-}
-
-.hero-content {
-  /* background-color: yellow; */
-  /* padding: d; */
 }
 
 .right-side {
-  /* background-color: blueviolet; */
   flex: 1 0 0;
   align-self: stretch;
 }
@@ -402,7 +571,6 @@ a {
 
 .divider {
   background: rgba(255, 255, 255, 0.12);
-
   height: 1px;
   flex-shrink: 0;
   align-self: stretch;
@@ -414,7 +582,6 @@ a {
   align-items: flex-start;
   gap: 24px;
   align-self: stretch;
-  /* background: #1bc895; */
 }
 
 .subscribe-content {
@@ -426,8 +593,7 @@ a {
 }
 
 .subscribe-content p {
-  color: #fff;
-  font-family: Inter;
+  color: var(--white-color);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -436,14 +602,9 @@ a {
 }
 
 .subscribe-content p:nth-child(2) {
-  color: var(--low-text-color);
-  color: var(--Slate-50, #c2ccd8);
-  font-family: Inter;
+  color:  #c2ccd8;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 22px;
-  letter-spacing: -0.2px;
 }
 
 .subscribe-info {
@@ -454,13 +615,14 @@ a {
 }
 
 .subscribe-section input {
+  width: 100%;
   height: 48px;
   padding: 0 8px;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  width: 100%;
+  border: 1px solid #ffffff80;
   background: transparent;
   outline: none;
+  color: var(--white-color);
 }
 
 input::placeholder {
@@ -468,20 +630,17 @@ input::placeholder {
 }
 
 .subscribe-button {
-  display: flex;
   padding: 12px 20px;
-  justify-content: center;
-  align-items: center;
   gap: 0;
   border-radius: 10px;
   background: var(--cta-default-color);
-  font-family: Inter;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: -0.3px;
 }
+
 
 /* footer */
 
@@ -495,17 +654,13 @@ input::placeholder {
 }
 
 .footer-cards p {
-  color: rgba(255, 255, 255, 0.7);
-  font-family: Inter;
+  color: #ffffffb3;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  letter-spacing: -0.2px;
 }
 
 .footer-cards ul {
-  display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
@@ -514,27 +669,21 @@ input::placeholder {
 }
 
 .footer-cards ul li {
-  color: #8e98a8;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
+  /* color: #8e98a8; */
+  font-size: 12px;
   line-height: 22px;
-  letter-spacing: -0.2px;
 }
-
+.footer-cards ul li a {
+  color: #8e98a8;
+}
 .footer-header {
   width: 100%;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 20px 0 12px 0;
 }
 
 .footer .social-media {
-  display: flex;
-  align-items: center;
   flex-direction: row;
   gap: 16px;
 }
@@ -544,8 +693,6 @@ input::placeholder {
   grid-template-columns: repeat(5, 1fr);
   align-items: stretch;
   gap: 10px;
-  width: 100%;
-  height: 100%;
   row-gap: 24px;
   padding: 20px 0;
 }
@@ -553,63 +700,73 @@ input::placeholder {
 .footer-content .footer-text {
   color: var(--Slate-400, #5a6478);
   grid-column: 1 / 6;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: -0.2px;
 }
 
-.copyright {
-  display: flex;
+
+.tnc {
   padding: 20px 0 60px 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
 }
-.copyright ul {
-  display: flex;
+
+.tnc ul {
+
   flex-direction: column;
   gap: 15px;
 }
 
-.copyright ul li {
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
+.tnc ul li {
   letter-spacing: -0.2px;
-  color: var(--Slate-400, #5a6478);
+  color: #5a6478;
 }
 
 .payment-methods ul {
-  display: flex;
   padding: 16px 0;
-  justify-content: center;
-  align-items: center;
   align-content: center;
   gap: 16px 44px;
   align-self: stretch;
   flex-wrap: wrap;
-  
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (orientation: portrait) and (max-width:991px) {
   .header {
-    display: flex;
     height: 56px;
     padding: 0 16px;
     justify-content: space-between;
-    align-items: center;
     align-self: stretch;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+.hero {
+  width: 100% !important;
+}
+  .header.scrolled {
+    height: 48px;
+    padding: 0 16px;
   }
 
-  .hero,
+  .header.scrolled .cta-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
   .steps-indicator {
     display: none !important;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+
+  .right-side  {
+  display: none !important;
+  }
+  .hero .left-side-title {
+    justify-content: space-evenly;
   }
 
   .subscribe-section,
@@ -617,6 +774,11 @@ input::placeholder {
   .cards-section {
     flex-direction: column;
     width: 100%;
+  }
+
+  .card {
+    width: 100%;
+    flex: none;
   }
 
   .subscribe-button {
