@@ -484,8 +484,7 @@ input::placeholder {
 }
 
 /* footer */
-.footer {
-}
+
 .footer {
   color: var(--white-color);
   padding: 0 80px;
@@ -494,13 +493,45 @@ input::placeholder {
   flex-direction: column;
   align-self: stretch;
 }
+
+.footer-cards p {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.2px;
+}
+
+.footer-cards ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 8px;
+  flex: 1 0 0;
+}
+
+.footer-cards ul li {
+  color: #8e98a8;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+}
+
 .footer-header {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  padding: 20px 0 12px 0;
 }
+
 .footer .social-media {
   display: flex;
   align-items: center;
@@ -515,10 +546,19 @@ input::placeholder {
   gap: 10px;
   width: 100%;
   height: 100%;
+  row-gap: 24px;
+  padding: 20px 0;
 }
 
-.footer-cards {
-  background: purple;
+.footer-content .footer-text {
+  color: var(--Slate-400, #5a6478);
+  grid-column: 1 / 6;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.2px;
 }
 
 .copyright {
@@ -529,6 +569,11 @@ input::placeholder {
   gap: 16px;
   align-self: stretch;
 }
+.copyright ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 .copyright ul li {
   font-family: Inter;
@@ -537,6 +582,7 @@ input::placeholder {
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.2px;
+  color: var(--Slate-400, #5a6478);
 }
 
 .payment-methods ul {
@@ -548,6 +594,7 @@ input::placeholder {
   gap: 16px 44px;
   align-self: stretch;
   flex-wrap: wrap;
+  
 }
 
 @media screen and (orientation: portrait) {
@@ -559,6 +606,7 @@ input::placeholder {
     align-items: center;
     align-self: stretch;
   }
+
   .hero,
   .steps-indicator {
     display: none !important;
@@ -570,9 +618,11 @@ input::placeholder {
     flex-direction: column;
     width: 100%;
   }
+
   .subscribe-button {
     width: 100%;
   }
+
   .subscribe-section {
     padding: 10px 16px;
   }
