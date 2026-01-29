@@ -389,7 +389,7 @@ a.a-default {
   }
 }
 .card img {
-  animation: liftUp 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: liftUp 10s ease-in-out infinite;
 }
 
 .card:nth-child(1) img {
@@ -397,11 +397,11 @@ a.a-default {
 }
 
 .card:nth-child(2) img {
-  animation-delay: 5s;
+  animation-delay: 3s;
 }
 
 .card:nth-child(3) img {
-  animation-delay: 10s;
+  animation-delay: 5s;
 }
 
 .card .label {
