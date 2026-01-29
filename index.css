@@ -44,6 +44,16 @@ li {
 a {
   text-decoration: none;
 }
+
+a.a-default {
+  text-decoration: underline;
+  color: #5a6478;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+}
 .hero,
 .hero-content,
 .hero .left-side,
@@ -235,7 +245,7 @@ a {
 .hero .left-side-title {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: start;
   height: 100%;
   gap: 12px;
@@ -421,7 +431,7 @@ a {
 
 .card-content-wrapper {
   display: flex;
-  padding: 16px;
+  padding: 8px 8px 16px;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -664,10 +674,11 @@ input::placeholder {
 }
 
 .footer-cards p {
-  color: #ffffffb3;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
+
+      color: #ffffffb3;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 35px;
 }
 
 .footer-cards ul {
@@ -676,6 +687,25 @@ input::placeholder {
   align-items: start;
   gap: 8px;
   flex: 1 0 0;
+}
+
+.footer-accordion-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Hide accordion icons on desktop */
+.accordion-icon {
+  display: none;
+}
+
+/* Ensure footer cards display normally on desktop */
+.footer-cards .footer-accordion-content {
+  max-height: none !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  padding: 0 !important;
 }
 
 .footer-cards ul li {
@@ -723,8 +753,11 @@ input::placeholder {
 
 .tnc ul {
 
-  flex-direction: column;
+flex-direction: column;
   gap: 15px;
+    text-align: start;
+    justify-content: center;
+    align-items: start;
 }
 
 .tnc ul li {
@@ -738,6 +771,12 @@ input::placeholder {
   gap: 16px 44px;
   align-self: stretch;
   flex-wrap: wrap;
+  max-width: 1280px;
+}
+.payment-methods ul li  {
+  border-radius: 4.667px;
+  opacity: 0.6;
+  mix-blend-mode: luminosity;
 }
 
 @media screen and (orientation: portrait) and (max-width:991px) {
@@ -836,5 +875,107 @@ input::placeholder {
 
   .footer .social-media {
     justify-content: center;
+  }
+
+  /* Footer Accordion Styles for Mobile */
+  /* Show accordion icons only on mobile */
+  .accordion-icon {
+    display: flex !important;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    width: 13px;
+    height: 13px;
+  }
+
+  .footer-accordion-title {
+    position: relative;
+    padding-right: 24px;
+    user-select: none;
+    transition: color 0.3s ease, margin-bottom 0.3s ease;
+    margin-bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--primary-color);
+    cursor: default;
+  }
+
+  .accordion-icon svg {
+    width: 13px;
+    height: 13px;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .footer-cards.active .footer-accordion-title {
+    margin-bottom: 0;
+  }
+
+  .footer-cards.active .icon-plus {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(90deg);
+  }
+
+  .footer-cards.active .icon-minus {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(0deg);
+  }
+
+  .footer-cards:not(.active) .icon-plus {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(0deg);
+  }
+
+  .footer-cards:not(.active) .icon-minus {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(-90deg);
+  }
+
+  .footer-cards .footer-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                padding-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0 16px;
+    margin: 0;
+  }
+
+  .footer-cards.active .footer-accordion-content {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 0;
+    padding-bottom: 12px;
+  }
+
+  .footer-cards ul.footer-accordion-content {
+    display: flex;
+    list-style: none;
+  }
+  .payment-methods ul li a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
