@@ -70,10 +70,12 @@ a.a-default {
 .card-content,
 .card .label,
 .footer,
-.footer-header,
 .footer .social-media,
 .subscribe-button,
-.payment-methods ul,.footer-cards ul,.tnc,.tnc ul {
+.payment-methods ul,
+.footer-cards ul,
+.tnc,
+.tnc ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +86,8 @@ a.a-default {
 .hero-content,
 .cta-section,
 .hero .left-side-content,
-.footer,.footer-content {
+.footer,
+.footer-content {
   width: 100%;
   height: 100%;
 }
@@ -99,7 +102,9 @@ a.a-default {
   gap: 24px;
 }
 
-.s-typo,.tnc ul li,.footer-cards ul li {
+.s-typo,
+.tnc ul li,
+.footer-cards ul li {
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -189,8 +194,6 @@ a.a-default {
   display: flex !important;
   height: 100%;
   width: 100%;
-
-
 }
 
 .hero.carousel .slick-list {
@@ -211,8 +214,6 @@ a.a-default {
   opacity: 1;
   visibility: visible;
 }
-
-
 
 .hero .left-side {
   display: flex;
@@ -350,13 +351,13 @@ a.a-default {
   background-color: var(--card-color);
   position: relative;
   flex: 1 0 0;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   border: 1px solid transparent;
   cursor: pointer;
 }
-
 
 .card:hover::after {
   opacity: 1;
@@ -371,10 +372,10 @@ a.a-default {
   opacity: 1;
 }
 
-
 /*   for images */
 @keyframes liftUp {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) translateZ(0);
   }
   25% {
@@ -485,18 +486,20 @@ a.a-default {
 }
 
 .card-image::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -200%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(45deg, 
-    transparent 0%, 
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
     transparent 30%,
     rgba(255, 255, 255, 0.08) 50%,
     transparent 70%,
-    transparent 100%);
+    transparent 100%
+  );
   animation: shimmer 3s ease-in-out infinite;
   z-index: 1;
   transform-origin: center;
@@ -525,16 +528,18 @@ a.a-default {
 }
 
 .card .cta-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
     rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%);
+    transparent 100%
+  );
   transition: left 0.5s ease;
 }
 
@@ -622,7 +627,7 @@ a.a-default {
 }
 
 .subscribe-content p:nth-child(2) {
-  color:  #c2ccd8;
+  color: #c2ccd8;
   font-size: 14px;
   line-height: 22px;
 }
@@ -649,7 +654,7 @@ input::placeholder {
   color: var(--low-text-color);
 }
 
-.subscribe-button {
+.subscribe .cta-button {
   padding: 12px 20px;
   gap: 0;
   border-radius: 10px;
@@ -660,7 +665,6 @@ input::placeholder {
   line-height: 24px;
   letter-spacing: -0.3px;
 }
-
 
 /* footer */
 
@@ -674,11 +678,10 @@ input::placeholder {
 }
 
 .footer-cards p {
-
-      color: #ffffffb3;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 35px;
+  color: #ffffffb3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 35px;
 }
 
 .footer-cards ul {
@@ -717,12 +720,27 @@ input::placeholder {
   color: #8e98a8;
 }
 .footer-header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
   width: 100%;
   justify-content: space-between;
-  gap: 16px;
+  /* gap: 16px; */
+  gap:32px;
   padding: 20px 0 12px 0;
 }
-
+.footer-header .logo {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+.footer-header .social-media-icon {
+  grid-column: 2;
+  grid-row: 1;
+}
+.footer-header .social-media-trustpilot {
+  grid-column: 3;
+  grid-row: 1;
+}
 .footer .social-media {
   flex-direction: row;
   gap: 16px;
@@ -742,7 +760,6 @@ input::placeholder {
   grid-column: 1 / 6;
 }
 
-
 .tnc {
   padding: 20px 0 60px 0;
   flex-direction: column;
@@ -752,12 +769,11 @@ input::placeholder {
 }
 
 .tnc ul {
-
-flex-direction: column;
+  flex-direction: column;
   gap: 15px;
-    text-align: start;
-    justify-content: center;
-    align-items: start;
+  text-align: start;
+  justify-content: center;
+  align-items: start;
 }
 
 .tnc ul li {
@@ -773,13 +789,13 @@ flex-direction: column;
   flex-wrap: wrap;
   max-width: 1280px;
 }
-.payment-methods ul li  {
+.payment-methods ul li {
   border-radius: 4.667px;
   opacity: 0.6;
   mix-blend-mode: luminosity;
 }
 
-@media screen and (orientation: portrait) and (max-width:991px) {
+@media screen and (orientation: portrait) and (max-width: 991px) {
   .header {
     height: 56px;
     padding: 0 16px;
@@ -789,9 +805,9 @@ flex-direction: column;
     top: 0;
     z-index: 1000;
   }
-.hero {
-  width: 100% !important;
-}
+  .hero {
+    width: 100% !important;
+  }
   .header.scrolled {
     height: 48px;
     padding: 0 16px;
@@ -813,9 +829,8 @@ flex-direction: column;
     padding: 0 16px;
   }
 
-
-  .right-side  {
-  display: none !important;
+  .right-side {
+    display: none !important;
   }
   .hero .left-side-title {
     justify-content: space-evenly;
@@ -876,6 +891,10 @@ flex-direction: column;
   .footer .social-media {
     justify-content: center;
   }
+  .footer-header .social-media-trustpilot {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
 
   /* Footer Accordion Styles for Mobile */
   /* Show accordion icons only on mobile */
@@ -897,7 +916,9 @@ flex-direction: column;
     position: relative;
     padding-right: 24px;
     user-select: none;
-    transition: color 0.3s ease, margin-bottom 0.3s ease;
+    transition:
+      color 0.3s ease,
+      margin-bottom 0.3s ease;
     margin-bottom: 0;
     width: 100%;
     display: flex;
@@ -911,7 +932,10 @@ flex-direction: column;
   .accordion-icon svg {
     width: 13px;
     height: 13px;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
     position: absolute;
     top: 0;
     left: 0;
@@ -948,10 +972,11 @@ flex-direction: column;
   .footer-cards .footer-accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                padding-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      padding-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     width: 100%;
     flex-direction: column;
