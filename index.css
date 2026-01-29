@@ -855,7 +855,7 @@ input::placeholder {
   }
 
   .subscribe-section {
-    padding: 10px 16px;
+    padding: 10px 0px;
   }
   .card-content-wrapper {
     padding: 16px 0;
@@ -1004,5 +1004,11 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .subscribe-info .cta-button {
+    width: 100% !important;
+    display: flex;
+padding: 10px 16px;
+
   }
 }
