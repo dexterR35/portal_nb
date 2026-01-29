@@ -1388,19 +1388,32 @@
 
       // Footer Accordion for Mobile Only
       (function () {
-        const isMobile = window.matchMedia("(max-width: 991px)").matches;
-        if (!isMobile) return; // Only enable on mobile
-        
         const footerCards = document.querySelectorAll(".footer-cards");
         
         footerCards.forEach((card) => {
+          const accordionTitle = card.querySelector(".footer-accordion-title");
           const accordionIcon = card.querySelector(".accordion-icon");
-          if (!accordionIcon) return;
+          
+          if (!accordionTitle || !accordionIcon) return;
 
+          // Make entire title clickable (better UX)
+          accordionTitle.addEventListener("click", function (e) {
+            const isMobile = window.matchMedia("(max-width: 991px)").matches;
+            if (isMobile) {
+              e.preventDefault();
+              e.stopPropagation();
+              card.classList.toggle("active");
+            }
+          });
+
+          // Also make icon specifically clickable
           accordionIcon.addEventListener("click", function (e) {
-            e.stopPropagation();
-            // Toggle active class on the clicked card
-            card.classList.toggle("active");
+            const isMobile = window.matchMedia("(max-width: 991px)").matches;
+            if (isMobile) {
+              e.preventDefault();
+              e.stopPropagation();
+              card.classList.toggle("active");
+            }
           });
         });
       })();

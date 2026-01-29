@@ -699,16 +699,18 @@ input::placeholder {
 }
 
 /* Hide accordion icons on desktop */
-.accordion-icon {
-  display: none;
-}
+@media screen and (min-width: 992px) {
+  .accordion-icon {
+    display: none;
+  }
 
-/* Ensure footer cards display normally on desktop */
-.footer-cards .footer-accordion-content {
-  max-height: none !important;
-  opacity: 1 !important;
-  overflow: visible !important;
-  padding: 0 !important;
+  /* Ensure footer cards display normally on desktop */
+  .footer-cards .footer-accordion-content {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
 }
 
 .footer-cards ul li {
@@ -926,7 +928,7 @@ input::placeholder {
     align-items: center;
     padding: 12px 16px;
     border-bottom: 1px solid var(--primary-color);
-    cursor: default;
+    cursor: pointer;
   }
 
   .accordion-icon svg {
