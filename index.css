@@ -654,11 +654,11 @@ input::placeholder {
   color: var(--low-text-color);
 }
 
-.subscribe .cta-button {
+.subscribe-info .cta-button {
   padding: 12px 20px;
   gap: 0;
   border-radius: 10px;
-  background: var(--cta-default-color);
+  background: var(--cta-default-color) !important;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
