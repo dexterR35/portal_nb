@@ -108,7 +108,7 @@ a {
   margin: 0 auto;
   flex-direction: column;
   gap: 16px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .header {
@@ -169,10 +169,17 @@ a {
   height: 100%;
   align-items: stretch;
 }
-
+.carousel, 
+.slick-track, 
+.slick-slide {
+    touch-action: pan-y;
+    -ms-touch-action: pan-y;
+}
 /* Fix Slick carousel layout */
 .hero.carousel {
   overflow: hidden;
+  min-height: 350px;
+  cursor: pointer;
 }
 
 .hero.carousel .slick-slide {
@@ -837,4 +844,26 @@ input::placeholder {
   .footer .social-media {
     justify-content: center;
   }
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+}
+
+
+.slick-prev {
+  left: 15px;
+}
+
+.slick-next {
+  right: 15px;
+}
+
+
+@media (max-width: 991px) {
+  .hero-container,.steps-indicator {
+    display: none !important;
+  }
+
 }
