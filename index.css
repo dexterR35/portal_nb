@@ -11,16 +11,13 @@
   --header-color: #010718;
   --card-color: #0a1225;
   --cta-color: #1b4dff;
-
   --cta-default-color: rgba(255, 255, 255, 0.08);
   --white-color: #fff;
-
   --rose-color: #f6697d;
   --green-color: #107759;
   --soft-green-color: #1bc895;
   --red-color: #eb2743;
   --soft-blue-color: #4a72ff;
-
   --low-text-color: #8e98a8;
 }
 
@@ -63,7 +60,10 @@ a {
 .footer-header,
 .footer .social-media,
 .subscribe-button,
-.payment-methods ul,.footer-cards ul,.tnc,.tnc ul {
+.payment-methods ul,
+.footer-cards ul,
+.tnc,
+.tnc ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +74,8 @@ a {
 .hero-content,
 .cta-section,
 .hero .left-side-content,
-.footer,.footer-content {
+.footer,
+.footer-content {
   width: 100%;
   height: 100%;
 }
@@ -89,7 +90,9 @@ a {
   gap: 24px;
 }
 
-.s-typo,.tnc ul li,.footer-cards ul li {
+.s-typo,
+.tnc ul li,
+.footer-cards ul li {
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
@@ -108,7 +111,6 @@ a {
   margin: 0 auto;
   flex-direction: column;
   gap: 16px;
-  /* overflow: hidden; */
 }
 
 .header {
@@ -169,13 +171,13 @@ a {
   height: 100%;
   align-items: stretch;
 }
-.carousel, 
-.slick-track, 
+.carousel,
+.slick-track,
 .slick-slide {
-    touch-action: pan-y;
-    -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
 }
-/* Fix Slick carousel layout */
+
 .hero.carousel {
   overflow: hidden;
   min-height: 350px;
@@ -186,8 +188,6 @@ a {
   display: flex !important;
   height: 100%;
   width: 100%;
-
-
 }
 
 .hero.carousel .slick-list {
@@ -202,14 +202,11 @@ a {
   align-items: stretch;
   will-change: transform;
 }
-
-/* Ensure smooth infinite loop - let Slick handle transitions */
+/* 
 .hero.carousel .slick-cloned {
   opacity: 1;
   visibility: visible;
-}
-
-
+} */
 
 .hero .left-side {
   display: flex;
@@ -308,7 +305,6 @@ a {
   outline: none;
 }
 
-
 /* steps indicator */
 .steps-indicator {
   width: 116px;
@@ -348,13 +344,13 @@ a {
   background-color: var(--card-color);
   position: relative;
   flex: 1 0 0;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   border: 1px solid transparent;
   cursor: pointer;
 }
-
 
 .card:hover::after {
   opacity: 1;
@@ -369,10 +365,10 @@ a {
   opacity: 1;
 }
 
-
 /*   for images */
 @keyframes liftUp {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) translateZ(0);
   }
   25% {
@@ -483,18 +479,20 @@ a {
 }
 
 .card-image::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -200%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(45deg, 
-    transparent 0%, 
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
     transparent 30%,
     rgba(255, 255, 255, 0.08) 50%,
     transparent 70%,
-    transparent 100%);
+    transparent 100%
+  );
   animation: shimmer 3s ease-in-out infinite;
   z-index: 1;
   transform-origin: center;
@@ -523,16 +521,18 @@ a {
 }
 
 .card .cta-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
     rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%);
+    transparent 100%
+  );
   transition: left 0.5s ease;
 }
 
@@ -620,7 +620,7 @@ a {
 }
 
 .subscribe-content p:nth-child(2) {
-  color:  #c2ccd8;
+  color: #c2ccd8;
   font-size: 14px;
   line-height: 22px;
 }
@@ -660,7 +660,6 @@ input::placeholder {
   letter-spacing: -0.3px;
 }
 
-
 /* footer */
 
 .footer {
@@ -688,7 +687,6 @@ input::placeholder {
 }
 
 .footer-cards ul li {
-  /* color: #8e98a8; */
   font-size: 12px;
   line-height: 22px;
 }
@@ -721,7 +719,6 @@ input::placeholder {
   grid-column: 1 / 6;
 }
 
-
 .tnc {
   padding: 20px 0 60px 0;
   flex-direction: column;
@@ -731,7 +728,6 @@ input::placeholder {
 }
 
 .tnc ul {
-
   flex-direction: column;
   gap: 15px;
   align-items: start;
@@ -754,7 +750,7 @@ input::placeholder {
   flex-wrap: wrap;
 }
 
-@media screen and (orientation: portrait) and (max-width:991px) {
+@media screen and (orientation: portrait) and (max-width: 991px) {
   .header {
     height: 56px;
     padding: 0 16px;
@@ -764,9 +760,9 @@ input::placeholder {
     top: 0;
     z-index: 1000;
   }
-.hero {
-  width: 100% !important;
-}
+  .hero {
+    width: 100% !important;
+  }
   .header.scrolled {
     height: 48px;
     padding: 0 16px;
@@ -788,9 +784,8 @@ input::placeholder {
     padding: 0 16px;
   }
 
-
-  .right-side  {
-  display: none !important;
+  .right-side {
+    display: none !important;
   }
   .hero .left-side-title {
     justify-content: space-evenly;
@@ -858,7 +853,6 @@ input::placeholder {
   width: 100%;
 }
 
-
 .slick-prev {
   left: 15px;
 }
@@ -867,10 +861,9 @@ input::placeholder {
   right: 15px;
 }
 
-
 @media (max-width: 991px) {
-  .hero-container,.steps-indicator {
+  .hero-container,
+  .steps-indicator {
     display: none !important;
   }
-
 }
