@@ -308,6 +308,7 @@ a {
   outline: none;
 }
 
+
 /* steps indicator */
 .steps-indicator {
   width: 116px;
@@ -652,6 +653,7 @@ input::placeholder {
   border-radius: 10px;
   background: var(--cta-default-color);
   font-size: 16px;
+  color: var(--white-color);
   font-style: normal;
   font-weight: 500;
   line-height: 24px;

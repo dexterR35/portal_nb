@@ -91,7 +91,7 @@
               id="subscribe-input"
               name="subscribe-input"
             />
-            <a href="#" class="cta-button">Subscribe</a>
+            <div class="subscribe-button">Subscribe</div>
           </div>
         </div>
       </div>
@@ -612,7 +612,7 @@ const initHero = () => {
 const initCards = () => {
   const $section = $('.cards-section');
   if (!$section.length) return;
-  const html = cardData.map(({ label, img, desc, code, link }) => `
+  const html = cardData.map(({ label, img, desc, code, link,ctaText }) => `
 <div class="card card-bg">
     <div class="label">
         <div class="icon">${ICON_SVG}</div>
