@@ -732,11 +732,16 @@ input::placeholder {
 
   flex-direction: column;
   gap: 15px;
+  align-items: start;
 }
 
 .tnc ul li {
   letter-spacing: -0.2px;
   color: #5a6478;
+}
+.tnc ul li a {
+  color: #5a6478;
+  /* color: gray; */
 }
 
 .payment-methods ul {

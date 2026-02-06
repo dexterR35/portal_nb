@@ -237,54 +237,35 @@
         <div class="footer-content">
           <div class="footer-cards">
             <ul>
-              <p>Legal & Regulatory</p>
-              <li><a href="#">Terms and Condition</a></li>
+              <p>Company Information:</p>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="https://www.livepartners.com/" target="_blank">Affiliate program</a></li>
+              <li><a href="https://casino.netbet.com/login" target="_blank">Log in</a></li>
+   
+            </ul>
+          </div>
+          <div class="footer-cards">
+            <ul>
+              <p>Legal & Regulatory:</p>
+              <li><a href="#">Terms and Conditions</a></li>
               <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Responsible Gambling</a></li>
+              <li><a href="#">Responsible Tools</a></li>
               <li><a href="#">Security</a></li>
               <li><a href="#">Consent choices</a></li>
             </ul>
           </div>
           <div class="footer-cards">
             <ul>
-              <p>Legal & Regulatory</p>
-              <li><a href="#">Terms and Condition</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Responsible Gambling</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Consent choices</a></li>
+              <p>Social & More:</p>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Game Reviews</a></li>
+        
             </ul>
           </div>
-          <div class="footer-cards">
-            <ul>
-              <p>Legal & Regulatory</p>
-              <li><a href="#">Terms and Condition</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Responsible Gambling</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Consent choices</a></li>
-            </ul>
-          </div>
-          <div class="footer-cards">
-            <ul>
-              <p class=".s-typo">Legal & Regulatory</p>
-              <li><a href="#">Terms and Condition</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Responsible Gambling</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Consent choices</a></li>
-            </ul>
-          </div>
-          <div class="footer-cards">
-            <ul>
-              <p>Legal & Regulatory</p>
-              <li><a href="#">Terms and Condition</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Responsible Gambling</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Consent choices</a></li>
-            </ul>
-          </div>
+
           <div class="footer-text s-typo">Access our responsible gaming section to make sure you are always in control. Cookies are used on this site. In using this site you confirm that you agree to our use of cookies. Find out more here.</div>
         </div>
         <div class="divider"></div>
@@ -503,30 +484,23 @@
         <div class="divider"></div>
         <div class="tnc">
           <ul>
+            <li>© NetBet 2026</li>
             <li>
-              <a href="#">NetBet © 2001-2025. Terms and conditions and Privacy Policy. All
-              rights reserved.</a>
+              NetBet © 2001-2026. <a href="https://casino.netbet.ie/help/terms-and-conditions/privacy">Terms and conditions</a> and <Privacy href="https://casino.netbet.ie/help/terms-and-conditions/terms-conditions">Privacy Policy</a>. All rights reserved.
             </li>
             <li>
-              <a href="#">Netbet Enterprises Limited is licensed and regulated in Great
-              Britain by the Gambling Commission under account number 39170.
-              Access to online money game sites is forbidden under some national
-              laws.</a>
+              NetBet Website is owned and operated by NetBet Enterprises Ltd.,, a company registered in Malta with a registered office at Ewropa Business Centre, Level 3, Suite 704, Office A, Dun Karm Street, Birkirkara, BKR9034, <br> Malta Licence No. <br>
+                MGA/B2C/126/2006, issued on 01/08/2018. Licensed and regulated by the Malta Gaming Authority MGA.
             </li>
-            <li><a href="#">Underage gambling is a criminal offence.</a></li>
+            <li>Please note that some of our games are licensed and regulated in the following jurisdictions: Alderney, Belgium, Curaçao and Gibraltar.</li>
             <li>
-              <a href="#">It is the responsibility of each individual player to ensure that
-              they are acting within the law when accessing the NetBet site.</a>
+              Access to online money game sites is forbidden under some national laws.
             </li>
             <li>
-              <a href="#">Gambling carries financial risk and a risk of dependency. Play
-              responsibly.</a>
+             It is the responsibility of each individual player to ensure that they are acting within the law when accessing the NetBet site.
             </li>
             <li>
-              <a href="#">This is a real-money gambling app. Please gamble responsibly and
-              only bet what you can afford. For gambling addiction help and
-              support, please contact Gamble Aware at 0808-8020-133 or visit
-              https://www.gambleaware.org/.</a>
+              Gambling carries financial risk and a risk of dependency. Play responsibly.
             </li>
           </ul>
         </div>
@@ -578,21 +552,26 @@ const cardData = [
     img: "card1.png",
     desc: "Up to 500 Free Spins for you",
     code: "NBXXXX11",
-    link: "#"
+    link: "#",
+    ctaText: "Join Casino"
+
   },
   {
     label: "Welcome Offer",
     img: "card2.png",
     desc: "Get <span>€40 in Free Bets</span>. Bet €10 to qualify",
     code: null,
-    link: "#"
+    link: "#",
+    ctaText: "Join Sport"
+
   },
   {
     label: "Welcome Offer",
     img: "card3.png",
     desc: "Triple your money up to <span>€1,500</span>",
     code: null,
-    link: "#"
+    link: "#",
+    ctaText: "Join Poker"
   }
 ];
 
@@ -652,7 +631,7 @@ const initCards = () => {
                 Terms and conditions apply. Please gamble responsibly
             </p>
         </div>
-        <a href="${link}" class="cta-button">Join Sport</a>
+        <a href="${link}" target="_blank" class="cta-button">${ctaText}</a>
     </div>
 </div>
 `).join('');
