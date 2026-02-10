@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ-VINTED | Haine deștepte pentru oameni și mai deștepți</title>
+    <style>
+        :root {
+            --vinted-teal: #007782;
+            --bg-light: #f5f6f7;
+            --white: #ffffff;
+            --error: #ff4d4d;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            color: #111;
+        }
+
+        /* Nav Bar */
+        nav {
+            background: var(--white);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo { font-size: 24px; font-weight: bold; color: var(--vinted-teal); letter-spacing: -1px; }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://www.transparenttextures.com/patterns/cubes.png');
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+        /* Card-ul de Test */
+        .quiz-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            margin: -100px auto 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn {
+            background: var(--vinted-teal);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--vinted-teal);
+            color: var(--vinted-teal);
+            margin-top: 10px;
+        }
+
+        .option {
+            border: 1px solid #ddd;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .option:hover { background: #f0f9f9; border-color: var(--vinted-teal); }
+
+        /* Marketplace */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .item-img {
+            height: 250px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        .item-info { padding: 15px; }
+        .price { font-weight: bold; font-size: 18px; }
+        .size { font-size: 12px; color: #666; text-transform: uppercase; }
+
+        .lockout-overlay {
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid var(--error);
+            color: var(--error);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">IQ-VINTED</div>
+    <div style="font-size: 0.8rem;">Vinde hainele de care ești prea deștept să le mai porți.</div>
+</nav>
+
+<div class="hero">
+    <h1>Ești destul de "fashion-forward" pentru noi?</h1>
+    <p>Doar utilizatorii cu IQ > 115 pot cumpăra sau vinde aici. <br>Fără haine urâte, fără logică proastă.</p>
+</div>
+
+<div class="container">
+    
+    <div id="quiz-section" class="quiz-card">
+        <div id="start-view">
+            <h3>Test de Intrare Rapid</h3>
+            <p style="color: #666; font-size: 0.9rem;">Dovedește că meriți să porți haine de firmă răspunzând la 3 întrebări de logică.</p>
+            
+            <div id="lockout-msg" class="hidden">
+                <div class="lockout-overlay">
+                    <strong>ACCES REFUZAT!</strong><br>
+                    Ești prea "fashion-victim". Reîncearcă peste 30 de zile când îți mai revine logica.
+                </div>
+                <button class="btn btn-outline" onclick="resetDebug()">[DEBUG] Șterge restricția</button>
+            </div>
+
+            <button id="start-btn" class="btn" onclick="startQuiz()">Sunt un geniu, lasă-mă să cumpăr</button>
+        </div>
+
+        <div id="quiz-view" class="hidden">
+            <p id="q-text" style="font-weight: bold;">Întrebare...</p>
+            <div id="options-box"></div>
+        </div>
+    </div>
+
+    <div id="market-section" class="hidden">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <h3>Haine proaspăt validate de genii</h3>
+            <span style="color: var(--vinted-teal); font-weight: bold;">Status: Geniu Confirmat ✅</span>
+        </div>
+        
+        <div class="market-grid">
+            <div class="item-card">
+                <div class="item-img">🧥</div>
+                <div class="item-info">
+                    <div class="price">120 RON</div>
+                    <div class="size">M / L / 130 IQ</div>
+                    <div style="font-size: 0.9rem;">Hanorac cu care am luat 10 la bac.</div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img">👟</div>
+                <div class="item-info">
+                    <div class="price">450 RON</div>
+                    <div class="size">42 / Nike "Logos"</div>
+                    <div style="font-size: 0.9rem;">Adidași pentru mers la bibliotecă.</div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img">🕶️</div>
+                <div class="item-info">
+                    <div class="price">80 RON</div>
+                    <div class="size">Unisex / Smart</div>
+                    <div style="font-size: 0.9rem;">Ochelari care te fac să pari mai inteligent.</div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img">🧶</div>
+                <div class="item-info">
+                    <div class="price">30 RON</div>
+                    <div class="size">S / Vintage</div>
+                    <div style="font-size: 0.9rem;">Pulover de lână de la bunica (fostă profesoară de fizică).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const QUESTIONS = [
+        { q: "Dacă un stilist are 3 eșarfe și le vinde pe toate cu 0 lei, ce are stilistul acum?", opts: ["Bani", "Foame", "Ghinion", "Un business plan prost"], correct: 3 },
+        { q: "Câte perechi de șosete ai nevoie pentru 3 picioare?", opts: ["2 perechi", "3 perechi", "1.5 perechi", "Depinde de mărime"], correct: 0 },
+        { q: "Ce cuvânt urmează? Gucci, Prada, Versace, ...", opts: ["Lidl", "Armani", "Pepco", "Târgul de Vechituri"], correct: 1 }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+
+    function checkLock() {
+        const lock = localStorage.getItem('vinted_iq_lock');
+        if (lock) {
+            document.getElementById('start-btn').classList.add('hidden');
+            document.getElementById('lockout-msg').classList.remove('hidden');
+            return true;
+        }
+        return false;
+    }
+
+    function resetDebug() {
+        localStorage.removeItem('vinted_iq_lock');
+        location.reload();
+    }
+
+    function startQuiz() {
+        if(checkLock()) return;
+        document.getElementById('start-view').classList.add('hidden');
+        document.getElementById('quiz-view').classList.remove('hidden');
+        loadQ();
+    }
+
+    function loadQ() {
+        if (currentQ >= QUESTIONS.length) {
+            finish();
+            return;
+        }
+        const q = QUESTIONS[currentQ];
+        document.getElementById('q-text').innerText = q.q;
+        const box = document.getElementById('options-box');
+        box.innerHTML = '';
+        q.opts.forEach((opt, i) => {
+            const d = document.createElement('div');
+            d.className = 'option';
+            d.innerText = opt;
+            d.onclick = () => { if(i === q.correct) score++; currentQ++; loadQ(); };
+            box.appendChild(d);
+        });
+    }
+
+    function finish() {
+        if (score === 3) {
+            document.getElementById('quiz-section').classList.add('hidden');
+            document.getElementById('market-section').classList.remove('hidden');
+        } else {
+            localStorage.setItem('vinted_iq_lock', 'true');
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('start-view').classList.remove('hidden');
+            checkLock();
+        }
+    }
+
+    checkLock();
+</script>
+
+</body>
+</html>
