@@ -706,16 +706,25 @@ letter-spacing: -0.3px;
   background: transparent;
   border: none;
   padding: 0;
-  cursor: pointer;
   gap: 8px;
 }
 
 .footer-toggle p {
   flex: 1;
   text-align: left;
+  color: var(--white-70, rgba(255, 255, 255, 0.70));
+
+/* Label/Small Medium */
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 142.857% */
+letter-spacing: -0.2px;
 }
 
 .toggle-icon {
+  display: none;
   color: #ffffffb3;
   font-size: 20px;
   font-weight: 300;
@@ -724,24 +733,29 @@ letter-spacing: -0.3px;
   user-select: none;
 }
 
+/* Desktop: Always show footer list content, no toggle functionality */
+.footer-toggle {
+  cursor: default;
+  pointer-events: none;
+}
+
+.footer-toggle p {
+  pointer-events: auto;
+}
 
 .footer-list-content {
   width: 100%;
   display: block;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-}
-
-.footer-toggle[aria-expanded="false"] + .footer-list-content {
-  max-height: 0;
-  opacity: 0;
-  margin-top: 0;
-}
-
-.footer-toggle[aria-expanded="true"] + .footer-list-content {
-  max-height: 500px;
+  overflow: visible;
+  max-height: none;
   opacity: 1;
-  margin-top: 8px;
+  /* margin-top: 8px; */
+  display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: start;
+gap: 8px;
+flex: 1 0 0;
 }
 
 .footer-cards ul li {
@@ -765,7 +779,7 @@ letter-spacing: -0.3px;
   padding: 20px 0 12px 0;
 }
 .footer .payment-methods ul li:nth-child(n+7) a {
-  filter: grayscale(1) opacity(0.7);
+  filter: grayscale(1) opacity(0.5);
 }
 .footer .social-media {
   flex-direction: row;
@@ -818,6 +832,12 @@ letter-spacing: -0.3px;
 }
 .social-media-trustpilot.mobile {
   display: none;
+}
+
+.payment-methods ul li a svg {
+  width: 53px;
+  height: 32px;
+  aspect-ratio: 53/32;
 }
 @media screen and (orientation: portrait) and (max-width: 991px) {
   .header {
@@ -908,10 +928,34 @@ letter-spacing: -0.3px;
   .footer-toggle {
     width: 100%;
     justify-content: space-between;
+    cursor: pointer;
+    pointer-events: auto;
   }
 
   .footer-toggle p {
     flex: 1;
+    pointer-events: none;
+  }
+
+  .toggle-icon {
+    display: block;
+  }
+
+  .footer-list-content {
+    /* overflow: hidden; */
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .footer-toggle[aria-expanded="false"] + .footer-list-content {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+  }
+
+  .footer-toggle[aria-expanded="true"] + .footer-list-content {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 8px;
   }
 
   .footer-header {
@@ -930,6 +974,11 @@ letter-spacing: -0.3px;
   }
   .social-media-trustpilot.desktop {
     display: none !important;
+  }
+
+  .payment-methods ul li a svg {
+    width: 46px;
+height: 28px;
   }
 
 }
