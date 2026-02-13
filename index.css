@@ -687,6 +687,7 @@ letter-spacing: -0.3px;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  margin: 0;
 }
 
 .footer-cards ul {
@@ -697,9 +698,62 @@ letter-spacing: -0.3px;
   flex: 1 0 0;
 }
 
+.footer-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.footer-toggle p {
+  flex: 1;
+  text-align: left;
+}
+
+.toggle-icon {
+  color: #ffffffb3;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+
+.footer-list-content {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-toggle[aria-expanded="false"] + .footer-list-content {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.footer-toggle[aria-expanded="true"] + .footer-list-content {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
 .footer-cards ul li {
-  font-size: 12px;
-  line-height: 22px;
+  color: var(--Slate-200, #8E98A8);
+
+  /* Body/Small Default */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: -0.2px;
 }
 .footer-cards ul li a {
   color: #8e98a8;
@@ -710,7 +764,7 @@ letter-spacing: -0.3px;
   gap: 16px;
   padding: 20px 0 12px 0;
 }
-.footer .payment-methods ul li a {
+.footer .payment-methods ul li:nth-child(n+7) a {
   filter: grayscale(1) opacity(0.7);
 }
 .footer .social-media {
@@ -762,7 +816,9 @@ letter-spacing: -0.3px;
   align-self: stretch;
   flex-wrap: wrap;
 }
-
+.social-media-trustpilot.mobile {
+  display: none;
+}
 @media screen and (orientation: portrait) and (max-width: 991px) {
   .header {
     height: 56px;
@@ -849,8 +905,17 @@ letter-spacing: -0.3px;
     width: 100%;
   }
 
+  .footer-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-toggle p {
+    flex: 1;
+  }
+
   .footer-header {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 16px;
     padding: 20px 0 12px 0;
@@ -859,6 +924,14 @@ letter-spacing: -0.3px;
   .footer .social-media {
     justify-content: center;
   }
+  .social-media-trustpilot.mobile {
+    display: flex;
+    align-self: flex-start ;
+  }
+  .social-media-trustpilot.desktop {
+    display: none !important;
+  }
+
 }
 
 .hero-container {
