@@ -1,0 +1,212 @@
+<style>
+  :root {
+    --primary-color: #0a1225;
+    --header-color: #010718;
+    --card-color: #0a1225;
+    --cta-color: #1b4dff;
+    --cta-hover-color: #0f3cd9;
+    --white-color: #fff;
+    --red-color: #eb2743;
+    --low-text-color: #8e98a8;
+    --close-icon-color: #b9bcc0;
+    --font-main: Inter, sans-serif;
+  }
+
+
+  /* remove in production */
+  *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+  /* remove in production */
+ 
+  .promo-card {
+    width: 100%;
+    min-width: 321px;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--card-color);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid transparent;
+  }
+
+  @media (min-width: 769px) {
+    .promo-card {
+      width: 500px;
+      min-width: 500px;
+      max-width: 500px;
+    }
+  }
+
+  .promo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--header-color);
+    width: 100%;
+  }
+
+  .promo-logo {
+    height: 25px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .promo-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--close-icon-color);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 400;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+
+  .promo-close:hover,
+  .promo-close:focus-visible {
+    opacity: 1;
+  }
+
+  .promo-illustration {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 333px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .promo-illustration img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .promo-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 16px 24px 24px;
+    width: 100%;
+  }
+
+  .promo-content-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .promo-headline {
+    color: var(--white-color);
+    font-family: var(--font-main);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: -0.4px;
+  }
+
+  .promo-body {
+    color: var(--white-color);
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .promo-disclaimer {
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--low-text-color);
+    line-height: 18px;
+    letter-spacing: -0.2px;
+  }
+
+  .promo-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    background: var(--cta-color);
+    color: var(--white-color);
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .promo-cta:hover {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.1) 100%
+      ),
+      var(--cta-hover-color);
+  }
+</style>
+
+<div class="promo-card">
+  <header class="promo-header">
+    <img
+      class="promo-logo"
+      src="https://img.netbet.ro/cdn-cgi/image/,f=webp/gms/images/global/layout/new-logo-white-en.png"
+      alt="NetBet"
+    />
+    <a href="dp:close" class="promo-close" aria-label="Close">×</a>
+  </header>
+
+  <div class="promo-illustration">
+    <img src="./png/PIcture.png" alt="Summer spin party" />
+  </div>
+
+  <div class="promo-content">
+    <div class="promo-content-text">
+      <h2 class="promo-headline">Summer spin party arrived! lorem</h2>
+      <p class="promo-body">
+        Fă prima depunere și ia-ți instant bonusul de 100% până la 1.500 RON,
+        plus 150 de Rotiri Gratuite la Burning Hot Clover Chance.
+      </p>
+      <p class="promo-disclaimer">
+        Dublează-ți balanța și intră în acțiune de la prima rotire!
+      </p>
+    </div>
+    <a
+      href="https://casinoroyale.ro/cashier/deposit-direct"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="promo-cta"
+      >Depune acum</a
+    >
+  </div>
+</div>
