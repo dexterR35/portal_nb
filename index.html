@@ -53,14 +53,13 @@
         overflow: hidden;
         border: 1px solid transparent;
       }
-
-      @media (min-width: 769px) {
-        .promo-card {
-          width: 500px;
-          min-width: 500px;
-          max-width: 500px;
-        }
-      }
+      @media (min-width: 769px) and (orientation: landscape) {
+    .promo-card {
+      width: 500px;
+      min-width: 500px;
+      max-width: 500px;
+    }
+  }
 
       .promo-header {
         display: flex;
