@@ -39,7 +39,8 @@
 
       .promo-card {
         width: 100%;
-        max-width: 430px;
+        min-width: 320px;
+        max-width: 420px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -74,6 +75,7 @@
         border: none;
         color: #b9bcc0;
         cursor: pointer;
+        text-decoration: none;
         font-size: 32px;
         opacity: 0.9;
         font-weight: 400;
@@ -123,17 +125,24 @@
       .promo-headline,
       .promo-body {
         color: var(--white-color);
-        font-family: Inter, sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 28px;
-        letter-spacing: -0.2px;
-        text-align: left;
+
+            font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: -0.4px;
       }
       .promo-body {
         font-size: 18px;
         /* line-height: 1.2; */
         font-weight: 400;
+        overflow: hidden;
+text-overflow: ellipsis;
+font-family: Inter;
+font-size: 14px;
+line-height: 22px; /* 157.143% */
+letter-spacing: -0.2px;
       }
       .promo-disclaimer {
         font-family: Inter, sans-serif;
@@ -148,6 +157,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
         width: 100%;
         height: 50px;
         padding: 0;
@@ -183,25 +193,26 @@
           src="https://img.netbet.ro/cdn-cgi/image/,f=webp/gms/images/global/layout/new-logo-white-en.png"
           alt="NetBet"
         />
-        <button class="promo-close" aria-label="Close">×</button>
+        <a href="dp:close" class="promo-close" aria-label="Close">×</a>
       </header>
 
       <div class="promo-illustration">
-        <img src="./png/card1.png" alt="Summer spin party" />
+        <img src="./png/PIcture.png" alt="Summer spin party" />
       </div>
 
       <div class="promo-content">
         <div class="promo-content-text">
           <h2 class="promo-headline">Summer spin party arrived!</h2>
           <p class="promo-body">
-            Deposit now and unwrap a cascade of bonuses and free spins this
-            holiday season!
+            Fă prima depunere și ia-ți instant bonusul de
+            100% până la 1.500 RON, plus 150 de Rotiri Gratuite la Burning Hot Clover Chance.
+            
           </p>
           <p class="promo-disclaimer">
-            Opt-in and bet £10+ on any slot; winnings are cash.
+            Dublează-ți balanța și intră în acțiune de la prima rotire!
           </p>
         </div>
-        <button class="promo-cta">Deposit now</button>
+        <a href="https://casinoroyale.ro/cashier/deposit-direct" target="_blank" rel="noopener noreferrer" class="promo-cta">Depune acum</a>
       </div>
     </div>
   </body>
